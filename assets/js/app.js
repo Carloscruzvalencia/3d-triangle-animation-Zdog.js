@@ -1,11 +1,7 @@
-let Piramid = new Zdog.Illustration({
+let piramid = new Zdog.Illustration({
     element: '.zdog-canvas',
     centered: true,
     resize: 'fullscreen',
-    backface: "#636",
     dragRotate: true,
+    zoom: -0.15
 });
-
-
-
-illo.updateRenderGraph();
