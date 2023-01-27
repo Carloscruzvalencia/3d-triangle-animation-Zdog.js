@@ -1,62 +1,54 @@
-# :bangbang: Working on the project :bangbang:
+# objetivo
+- Recrear y animar la siguiente imagen en Zdog.js
+![inspiracion](pr/201-2014695_tri-form-3d-geometric-shapes-geometric-graphic-geometric.png)
 
-there well be no updates on main branch until a mayor progres on the project until the moment all the updates will stay in the development branch.
+# Resultado final
+![Resultado final del proyecto](pr/2023-01-27%2023-34-35.gif)
 
-  ```mermaid
-    gitGraph
-       checkout main
-       commit id: "First commit"
-       branch development
-       commit id: "Project updates"
-       commit id: "Latest update to the project"
-  ```
-    
-:bangbang: if you want to know what im doign change to the branch development :bangbang:
+[Miralo en la web](https://carloscruzvalencia.github.io/3d-triangle-animation-Zdog.js/)
+<details open>
+<summary>Documentacion del proyecto</summary>
 
-<img height="" src="git-branch.png">
+## Mediante un bucle se generan triangulos nesesarios
+```JavaScript 
+for (i = 0; i != 30; i++) {
+    new Zdog.Shape({
+        addTo: piramid,
+        path: [ // triangle
+            { x: i * 0, y: i * -95 },
+            { x: i * 90, y: i * 60 },
+            { x: i * -90, y: i * 60 },
+        ],
+        stroke: i * 1.5,
+        color: 'gray',
+        translate: {
+            y: -100,
+            z: i*120
+        },
+        rotate: {
+            z: 9.42
+        }
+    });
+}
+```
 
-<!-- # {pTitle}
+## Para terminar animamos toda la figura
+```JavaScript 
+function animate() {
+    mv = 0.000
+    for (i = 0; i != 30; i++) {
+        piramid.children[i].rotate.z += mv
+        mv = mv + 0.00005
+    }
+    piramid.updateRenderGraph();
+    requestAnimationFrame(animate);
+}
+animate();
+```
 
-## Inpiracion del proyecto & objetivo
+# Resultado final
+![Resultado final del proyecto](pr/2023-01-27%2023-34-35.gif)
 
--  {pDesc}
-
-El diseño web se ha creado en [Figma](https://www.figma.com/file/kP0SJhf4iDDa9kAzsz1LM1/Github-projects?node-id=0%3A1) por Carlos cruz valencia
-
-Puedes visitar el proyecto en [Githubpages]({pUrl})
-
-## Links de interes
-<code> <a href="mailto:a2carcruzinfo@gmail.com"><img height="25" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a></code>
-<code><a a href="https://www.figma.com/file/kP0SJhf4iDDa9kAzsz1LM1/Github-projects?node-id=0%3A1"><img height="25" src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"></a></code>
-<code><a a href="https://www.linkedin.com/in/carlos-cruz-valencia-564514162/"><img height="25" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></code>
-
-## Tecnologias usadas
-
-Ide
-
-<code><img height="25" src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white"></code>
-
-Programas usados
-
-<code><img height="30" src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"></code>
-    
-lenguajes/frameworks usados
-
-{pLang}
-
-
-## Estado del proyecto
-|Trabajando en el proyecto|{st3}|
-| -------------------------- | :----------------: |
-| Web responsive          |{st2}|
-| Hosting                 |{st1}|
-
-## Vista previa del proyecto
-
-{pPreview}
-
-## Licencia
-
-Este proyecto está bajo la Licencia (MIT) - mira el archivo [LICENSE.md](./LICENSE) para mas detalles
-
-Este ```README.md``` se a generado con [Readme-gen.py](https://github.com/Carloscruzvalencia/website-project-template/blob/main/ReadmeGen-min.py) -->
+visita la pagina web
+[Pagina web](https://carloscruzvalencia.github.io/3d-triangle-animation-Zdog.js/)
+</details>
